@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Kanocristales</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Kanocristales</a>
+        <div class="toggle" onclick="togglemenu();"></div>
+        <ul class="menu">
+            <li><a href="#home" onclick="togglemenu();">Home</a></li>
+            <li><a href="#about" onclick="togglemenu();">About Us</a></li>
+            <li><a href="#services" onclick="togglemenu();">Services</a></li>
+            <li><a href="#work" onclick="togglemenu();">Work</a></li>
+            <li><a href="#testimonial" onclick="togglemenu();">Testimonial</a></li>
+            <li><a href="#contact" onclick="togglemenu();">Contact Us</a></li>
+        </ul>
+    </header>
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
