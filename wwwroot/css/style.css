@@ -221,6 +221,7 @@ img{
     min-width: 60%;
 }
 .formBx form{
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
 }
