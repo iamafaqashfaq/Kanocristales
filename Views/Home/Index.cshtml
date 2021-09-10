@@ -4,8 +4,8 @@
 
 <section class="banner" id="home">
         <div class="textbx">
-            <h2>Welcome To<br><span>Kanocristales</span></h2>
-            <h3>Kanocristales is a business software solution IT 
+            <h2>Welcome To<br><span>BlyckBox</span></h2>
+            <h3>BlyckBox is a software solution 
                 company <br> that provides wide rang of business solutions 
                 for you to do more and worry less.</h3>
             <a href="#about" class="btn">About Company</a>
@@ -28,9 +28,9 @@
                 <p>&ensp;&ensp;&ensp;&ensp;We started out as group of enthusiasts that wanted to make
                     a mark in Software Development field. We wanted to offer top class services to the
                     client in this competitive field. For that we made a team of highly qualified 
-                    skilled developers to serve our clients better. For the past 3 years we are have
-                    developed allot of innovative software, mobile applications and web applications. 
-                    We are motivated to do more. We are Kanocristales.
+                    skilled developers to serve our clients better. For the past 3 years we have
+                    developed alot of innovative software, mobile applications and web applications. 
+                    We are motivated to do more. We are BlyckBox.
                 </p>
             </div>
             <div class="w50">
@@ -100,7 +100,7 @@
             </div>
         </div>
     </section>
-    <section class="work" id="work">
+    @*<section class="work" id="work">
         <div class="heading">
             <h2>Our Latest Work</h2>
         </div>
@@ -124,8 +124,8 @@
         <div class="heading">
             <a href="#work" class="btn viewmore-btn" onclick="toggleViewMore()">View More</a>
         </div>
-    </section>
-    <section class="testimonial" id="testimonial">
+    </section>*@
+    @*<section class="testimonial" id="testimonial">
         <div class="heading">
             <h2>Testimonial</h2>
         </div>
@@ -147,7 +147,7 @@
             </div>
             <div class="testimonialBx">
                 <p>
-                    "I was amazed at the quality of Kanocristales. Thanks to mobile application, 
+                    "I was amazed at the quality of BlyckBox. Thanks to mobile application, 
                     we've just launched our 5th website!"
                 </p>
                 <h3>Jack Roddy<br><span>Sliver</span></h3>
@@ -157,11 +157,8 @@
                     the hassle. Very easy to use. Just what I was looking for. Best. Product. Ever!"</p>
                 <h3>Manzoor Ahmed<br><span>Raymond Oil Mills</span></h3>
             </div>
-
-            
-
         </div>
-    </section>
+    </section>*@
     <section class="contact" id="contact">
         <div class="heading white">
             <h2>Contact Us</h2>
@@ -198,8 +195,7 @@
                         </div>
                         <div class="text">
                             <h3>Phone</h3>
-                            <p>+92 304-7464614<br>
-                            +92 345-8672640</p>
+                            <p>+92 345-8672640</p>
                         </div>
                     </div>
                     <div class="box">
@@ -208,24 +204,25 @@
                         </div>
                         <div class="text">
                             <h3>Email</h3>
-                            <a mailto="hr@Kanocristales.com">hr@Kanocristales.com</a>
+                            <a mailto="blyckbox@blyckbox.com">blyckbox@blyckbox.com</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="formBx">
-                <form>
+                <form asp-controller="Home" asp-action="ContactUs">
                     <h3>Message Me</h3>
-                    <input type="text" name="" placeholder="Full Name">
-                    <input type="email" name="" placeholder="Email">
-                    <textarea placeholder="Your Message"></textarea>
+                    <input type="text" name="Name" placeholder="Full Name">
+                    <input type="email" name="Email" placeholder="Email">
+                    <textarea placeholder="Your Message" name="Message"></textarea>
                     <input type="submit" value="send">
                 </form>
             </div>
         </div>
     </section>
     <div class="copyright">
-        <p>Copyright&copy; 2020. All Rights Reserved</p>
+        <p style="display: inline-block">Copyright&copy; 2021. All Rights Reserved   |</p>
+        <a style="color: white" asp-controller="Home" asp-action="PrivacyPolicy">Privacy Policy</a>
     </div>
     <script type="text/javascript">
         window.addEventListener('scroll', function () {

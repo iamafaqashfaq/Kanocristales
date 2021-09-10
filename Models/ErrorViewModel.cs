@@ -1,6 +1,6 @@
 using System;
 
-namespace Kanocristales.Models
+namespace BlyckBox.Models
 {
     public class ErrorViewModel
     {
