@@ -1,0 +1,98 @@
+@{
+    ViewData["Title"] = "Services";
+}
+<section class="services" id="services">
+    <div class="heading white">
+        <h2>Our Services</h2>
+    </div>
+    <div class="content">
+        <div class="serviceBx">
+            <img src="~/img/icon1.png">
+            <h2>Web Designing</h2>
+            <p>
+                We do web development with top notch latest technologies with popular JavaScript
+                frameworks i.e ReactJs, Angular, VueJs and backend technologies
+                which are NodeJs, ASP.NET Core, Php.
+            </p>
+        </div>
+        <div class="serviceBx">
+            <img src="~/img/icon2.png">
+            <h2>Desktop Application</h2>
+            <p>
+                We develop Desktop business apps for wide range of businesses and niche using different tech stacks upon
+                customers
+                demand i.e Electron (Cross-Platform), macOS Software Development, Win32 Apps etc.
+            </p>
+        </div>
+        <div class="serviceBx">
+            <img src="~/img/icon3.png">
+            <h2>Mobile Application Development</h2>
+            <p>
+                We develop mobile apps for Native Android (Kotlin) or Native iOS (Swift)
+                while also Cross Platform apps that target both Operating System with
+                Flutter or React Native.
+            </p>
+        </div>
+        <div class="serviceBx">
+            <img src="~/img/prototype.png">
+            <h2>Prototyping</h2>
+            <p>
+                We design beautiful illustrations and prototypes that portrays customers imaginations.
+                We provide logo designing, web designing and many more graphical UI's with
+                Adobe XD, Figma, Adobe Illustrator, Adobe Photoshop etc.
+            </p>
+        </div>
+        <div class="serviceBx">
+            <img src="~/img/icon5.png">
+            <h2>Project Documentation</h2>
+            <p>
+                We also provide proper Software usecase architecture and Documentation to the client
+                if needed for better understanding of the details of software.
+            </p>
+        </div>
+        <div class="serviceBx">
+            <img src="~/img/icon6.png">
+            <h2>Animations</h2>
+            <p>
+                We create video animations, short intro graphical animated clips and animated
+                videos with various tools like Adobe Premier Pro,
+                Adobe After Effects, DaVinci Resolve etc.
+            </p>
+        </div>
+    </div>
+</section>
+<div class="copyright">
+    <p style="display: inline-block">Copyright&copy; 2022. All Rights Reserved |</p>
+    <a style="color: white" asp-controller="Home" asp-action="PrivacyPolicy">Privacy Policy</a>
+</div>
+
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("Calling header")
+        var header = document.querySelector('header');
+        header.classList.toggle('sticky', true);
+    });
+
+
+    function togglemenu() {
+        var menutoggle = document.querySelector('.toggle');
+        var menu = document.querySelector('.menu');
+        menutoggle.classList.toggle('active')
+        menu.classList.toggle('active')
+    }
+
+    function toggleViewMore() {
+        var viewMoreToggle = document.querySelector('.viewmore-item');
+        var viewMoreButton = document.querySelector('.viewmore-btn');
+        if (viewMoreButton.innerHTML == "View More") {
+            viewMoreButton.innerHTML = "View Less";
+        } else if (viewMoreButton.innerHTML == "View Less") {
+            viewMoreButton.innerHTML = "View More";
+        }
+        viewMoreToggle.classList.toggle('d-none');
+    }
+
+</script>
+
+}

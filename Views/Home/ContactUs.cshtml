@@ -1,0 +1,97 @@
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<section class="contact" id="contact">
+    <div class="heading white">
+        <h2>Contact Us</h2>
+    </div>
+    <div class="content">
+        <div class="contactInfo">
+            <h3>Contact Info</h3>
+            <div class="contactInfoBx">
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-map-marker"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <h4>UAE</h4>
+                        <p>
+                            601 Palace Tower, Silicon Oasis, <br> Dubai, UAE
+                        </p>
+                        <h4>Islamabad</h4>
+                        <p>House no 2019, State 64, Phase 3,<br /> Bahria Town, Islamabad</p>
+                        <h4>Lahore</h4>
+                        <p>
+                            House no 72-B, Street no 1B, <br>Eden Resedencia,<br>
+                            Near Military
+                            Account Society,<br> College Road, Lahore, Punjab
+                        </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>+92 345-8672640</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <a mailto="blyckbox@blyckbox.com">blyckbox@blyckbox.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="formBx">
+            <form asp-controller="Home" asp-action="ContactUs">
+                <h3>Message Me</h3>
+                <input type="text" name="Name" placeholder="Full Name">
+                <input type="email" name="Email" placeholder="Email">
+                <textarea placeholder="Your Message" name="Message"></textarea>
+                <input type="submit" value="send">
+            </form>
+        </div>
+    </div>
+</section>
+<div class="copyright">
+    <p style="display: inline-block">Copyright&copy; 2022. All Rights Reserved |</p>
+    <a style="color: white" asp-controller="Home" asp-action="PrivacyPolicy">Privacy Policy</a>
+</div>
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("Calling header")
+        var header = document.querySelector('header');
+        header.classList.toggle('sticky', true);
+    });
+
+
+    function togglemenu() {
+        var menutoggle = document.querySelector('.toggle');
+        var menu = document.querySelector('.menu');
+        menutoggle.classList.toggle('active')
+        menu.classList.toggle('active')
+    }
+
+    function toggleViewMore() {
+        var viewMoreToggle = document.querySelector('.viewmore-item');
+        var viewMoreButton = document.querySelector('.viewmore-btn');
+        if (viewMoreButton.innerHTML == "View More") {
+            viewMoreButton.innerHTML = "View Less";
+        } else if (viewMoreButton.innerHTML == "View Less") {
+            viewMoreButton.innerHTML = "View More";
+        }
+        viewMoreToggle.classList.toggle('d-none');
+    }
+
+</script>
+
+}

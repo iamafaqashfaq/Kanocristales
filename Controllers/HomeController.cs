@@ -26,6 +26,20 @@ namespace BlyckBox.Controllers
         {
             return View();
         }
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+        public IActionResult Services()
+        {
+            return View();
+        }
+        public IActionResult ContactUs()
+        {
+            return View();
+        }
+
         public IActionResult PrivacyPolicy()
         {
             return View();
@@ -36,7 +50,8 @@ namespace BlyckBox.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
+
+        [HttpPost]
         public IActionResult ContactUs(ContactUs model)
         {
             MailMessage message = new MailMessage();
@@ -47,7 +62,7 @@ namespace BlyckBox.Controllers
             message.IsBodyHtml = false;
             message.Body = emailTemplate;
             SmtpClient smtp = new SmtpClient();
-            smtp.Port = 587;
+            smtp.Port = 465;
             smtp.Host = _config.GetSection("emailcred:host").Value;
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;

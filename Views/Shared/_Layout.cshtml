@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,21 +11,23 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/style.css">
 </head>
+
 <body>
     <header>
-        <a href="#" class="logo">Box</a>
+        <a asp-controller="Home" asp-action="index" class="logo">BlyckBox</a>
         <div class="toggle" onclick="togglemenu();"></div>
         <ul class="menu">
-            <li><a href="#home" onclick="togglemenu();">Home</a></li>
-            <li><a href="#about" onclick="togglemenu();">About Us</a></li>
-            <li><a href="#services" onclick="togglemenu();">Services</a></li>
+            <li><a asp-controller="Home" asp-action="index" onclick="togglemenu();">Home</a></li>
+            <li><a asp-controller="Home" asp-action="AboutUs" onclick="togglemenu();">About Us</a></li>
+            <li><a asp-controller="Home" asp-action="Services" onclick="togglemenu();">Services</a></li>
             @*<li><a href="#work" onclick="togglemenu();">Work</a></li>*@
             @*<li><a href="#testimonial" onclick="togglemenu();">Testimonial</a></li>*@
-            <li><a href="#contact" onclick="togglemenu();">Contact Us</a></li>
+            <li><a asp-controller="Home" asp-action="News" onclick="togglemenu();">News</a></li>
+            <li><a asp-controller="Home" asp-action="ContactUs" onclick="togglemenu();">Contact Us</a></li>
         </ul>
     </header>
     <div>
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
@@ -33,4 +36,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>
