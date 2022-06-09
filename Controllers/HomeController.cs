@@ -9,6 +9,7 @@ using BlyckBox.Models;
 using System.Net.Mail;
 using Microsoft.Extensions.Configuration;
 using System.Net;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlyckBox.Controllers
 {
@@ -16,10 +17,12 @@ namespace BlyckBox.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _config;
-        public HomeController(ILogger<HomeController> logger, IConfiguration config)
+        private readonly DataContext context;
+        public HomeController(ILogger<HomeController> logger, IConfiguration config, DataContext _context)
         {
             _logger = logger;
             _config = config;
+            context = _context;
         }
 
         public IActionResult Index()
@@ -40,6 +43,12 @@ namespace BlyckBox.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Blogs()
+        {
+            var blogs = await context.Blogs!.ToListAsync();
+            return View(blogs);
+        }
+
         public IActionResult PrivacyPolicy()
         {
             return View();
@@ -56,7 +65,7 @@ namespace BlyckBox.Controllers
         {
             MailMessage message = new MailMessage();
             message.From = new MailAddress(_config.GetSection("emailcred:email").Value);
-            message.To.Add(new MailAddress(model.Email));
+            message.To.Add(new MailAddress(model.Email!));
             message.Subject = model.Name + "- Contacted From BlyckBox Website";
             var emailTemplate = model.Message;
             message.IsBodyHtml = false;
