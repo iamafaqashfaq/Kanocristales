@@ -2,7 +2,7 @@ using BlyckBox.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace BlyckBox.Controllers
 {
@@ -22,9 +22,32 @@ namespace BlyckBox.Controllers
         }
 
         [Authorize]
-        public IActionResult Index()
+        [Route("Index")]
+        public async Task<IActionResult> Index()
+        {
+            var blogs = await context.Blogs!.ToListAsync();
+            return View(blogs);
+        }
+
+        [Authorize]
+        [Route("Create")]
+        public IActionResult Create()
         {
             return View();
+        }
+
+        [Authorize]
+        [Route("Delete/{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var blogs = await context.Blogs!.FirstOrDefaultAsync(c => c.Id == id);
+            if (blogs != null)
+            {
+                context.Blogs!.Remove(blogs);
+                await context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
         }
 
         [Authorize]
