@@ -1,0 +1,50 @@
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model BlyckBox.Models.BlogVM
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form method="post" enctype="multipart/form-data" asp-controller="Blog" asp-action="PostBlog">
+                <h5>Title</h5>
+                <input type="text" class="form-control" asp-for="Title" placeholder="Title" />
+                <h5>Description</h5>
+                <input type="text" class="form-control" asp-for="Description" placeholder="Description" />
+                <h5>Tags</h5>
+                <input type="text" class="form-control" asp-for="Tags" placeholder="Tags" />
+                <h5>Image</h5>
+                <input type="file" class="form-control" asp-for="Image" placeholder="Image" />
+                <h5>Content</h5>
+                <textarea asp-for="Content"></textarea>
+                <button class="btn btn-secondary mt-2" id="getdata" type="button">Print Preview</button>
+                <button class="btn btn-primary ml-2 mt-2 d-inline" id="postData" type="submit">Post</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <div id="editorData"></div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+<script>
+    CKEDITOR.replace('Content', {
+        height: 400,
+        filebrowserUploadUrl: '/blog/upload_ckeditor',
+        filebrowserUploadMethod: 'form'
+    });
+
+
+    function getDataFromTheEditor() {
+        var data = CKEDITOR.instances.Content.getData();
+        document.getElementById('editorData').innerHTML = data;
+    }
+
+    document.getElementById('getdata').addEventListener('click', () => {
+        getDataFromTheEditor()
+    });
+</script>
+}

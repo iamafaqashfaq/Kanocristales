@@ -36,7 +36,7 @@ namespace BlyckBox.Controllers
 
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Blog");
+                        return RedirectToAction("Index", "BlogAdmin");
                     }
                 }
             }

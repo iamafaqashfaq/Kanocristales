@@ -48,6 +48,18 @@ namespace BlyckBox.Controllers
             var blogs = await context.Blogs!.ToListAsync();
             return View(blogs);
         }
+        [Route("Blog/{id:int}")]
+        public async Task<IActionResult> Blog(int id)
+        {
+
+            var blogs = await context.Blogs!.FirstOrDefaultAsync(c => c.Id == id);
+            if (blogs != null)
+            {
+                ViewData["Title"] = blogs.Title;
+                return View(blogs);
+            }
+            return RedirectToAction("Blogs");
+        }
 
         public IActionResult PrivacyPolicy()
         {
